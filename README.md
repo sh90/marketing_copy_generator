@@ -81,3 +81,5 @@ Style polish (witty/formal/persuasive/etc.)
 Length normalization (short/medium/long)
 
 Simulated A/B test converts a heuristic quality score to a click probability and runs a two-proportion z-test.
+
+Send results as email report. Generate APP password here (https://myaccount.google.com/apppasswords)
