@@ -33,19 +33,13 @@ st.set_page_config(page_title="Marketing Copy Generator", page_icon="📝", layo
 # =========================
 def get_email_creds():
     """
-    Returns (sender_email, app_password). Prefer st.secrets, fallback to env vars.
-    Set these in .streamlit/secrets.toml or your shell:
-      [EMAIL]
-      SENDER="you@gmail.com"
-      APP_PASSWORD="abcd efgh ijkl mnop"
-    or
-      export EMAIL_SENDER="you@gmail.com"
-      export EMAIL_APP_PASSWORD="abcd efgh ..."
+    Returns (sender_email, app_password). P
     """
-    sender = os.getenv("EMAIL_SENDER")
-    #sender = "shikhatyagi1990@gmail.com"
+    # sender = os.getenv("EMAIL_SENDER")
+    sender = "shikhatyagi1990@gmail.com"
     app_pw = os.getenv("EMAIL_APP_PASSWORD")
-    #app_pw = ""
+    print(app_pw)
+    #app_pw =
     return sender, app_pw
 
 def send_email_gmail(sender_email: str, app_password: str, receiver_email: str, subject: str, body: str) -> tuple[bool, str]:
@@ -56,19 +50,22 @@ def send_email_gmail(sender_email: str, app_password: str, receiver_email: str, 
     if not sender_email or not app_password:
         return False, "Missing sender email or app password. Set in st.secrets or env."
 
-    msg = MIMEMultipart()
-    msg["From"] = sender_email
-    msg["To"] = receiver_email
-    msg["Subject"] = subject
-    msg.attach(MIMEText(body, "plain"))
-
+    message = MIMEMultipart()
+    message["From"] = sender_email
+    message["To"] = receiver_email
+    message["Subject"] = subject
+    message.attach(MIMEText(body, "plain"))
+    # Send the email via Gmail's SMTP server
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-            server.login(sender_email, app_password)
-            server.sendmail(sender_email, receiver_email, msg.as_string())
-        return True, "Email sent successfully."
+            print(sender_email,os.getenv("EMAIL_APP_PASSWORD"))
+            server.login(sender_email, os.getenv("EMAIL_APP_PASSWORD"))
+            server.sendmail(sender_email, receiver_email, message.as_string())
+        print("Email sent successfully!")
+        return True, "Email sent successfully!"
     except Exception as e:
-        return False, f"Error sending email: {e}"
+        print("Error sending email:", e)
+        return False, "Email not sent successfully!"
 
 # =========================
 # Sidebar: config
@@ -80,9 +77,7 @@ max_tokens = st.sidebar.slider("Max tokens", 100, 800, 280, 20)
 log_path = st.sidebar.text_input("Log CSV path", value="runs_log.csv")
 receiver_email = st.sidebar.text_input("Send results to (email)", value="", help="Recipient for emailing the generated results.")
 st.sidebar.caption(
-    "API key from env or .env. Email sender + app password from st.secrets or env.\n"
-    "Secrets example in .streamlit/secrets.toml:\n\n"
-    "[EMAIL]\nSENDER=\"you@gmail.com\"\nAPP_PASSWORD=\"abcd efgh ijkl mnop\""
+    "Save API key, email and app password in .env or read it directly.\n"
 )
 
 client = OpenAI()  # Uses OPENAI_API_KEY from env/.env
