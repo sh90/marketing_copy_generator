@@ -72,7 +72,7 @@ streamlit run app.py
 ```
 
 ## Features
-```Prompt chaining:```
+```Prompt chaining```
 
 ```Draft (grounded in inputs)```
 
