@@ -12,6 +12,45 @@ What we’ll build:
 
    (https://www.youtube.com/watch?v=WRGW6xHLy3k)
 
+```
+What is A/B Testing & How We’re Using It Today
+What is A/B Testing?
+Definition: A method to compare two or more versions of something to see which performs better.
+
+Goal: Make decisions based on data, not guesswork.
+
+How it works:
+
+Show Version A to one group of users
+
+Show Version B to another group
+
+Measure which one achieves your goal better (e.g., clicks, sign-ups, sales)
+
+Why It’s Useful in Marketing
+Removes personal bias — lets the audience decide
+
+Measures the impact of changes (e.g., adding a CTA, changing tone)
+
+Optimizes for conversion rate and ROI
+
+How It’s Helping in This Demo
+We’re generating two different marketing copies using GPT-4o-mini
+
+Each version may vary in:
+
+Tone/Style (witty, formal, persuasive)
+
+CTA presence
+
+We simulate showing these to different “audiences”
+
+We then track & compare the click-through rate (CTR) to find the winner
+
+💡 Key takeaway for beginners:
+A/B testing is like a taste test — you let the customer decide which flavor they like best, then use that to guide your next move.
+```
+
 Skills: style conditioning, prompt chaining, lightweight experimentation
 
 ## Quickstart
