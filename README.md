@@ -74,7 +74,7 @@ streamlit run app.py
 ## Features
 ```Prompt chaining```
 
-```Draft (grounded in inputs)```
+```Generate first basic Draft (grounded in inputs)```
 
 ```Style polish (witty/formal/persuasive/etc.)```
 
