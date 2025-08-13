@@ -1,4 +1,4 @@
-# Marketing Copy Generator with Style Selector (Streamlit, Python 3.12)
+# Marketing Copy Generator with Style Selector 
 
 A hands-on demo app that generates marketing copy (ad copy, social captions, product descriptions) in a selectable style,
 and lets you run quick A/B tests on the generated variants.
