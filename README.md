@@ -4,7 +4,7 @@ A hands-on demo app that generates marketing copy (ad copy, social captions, pro
 and lets you run quick A/B tests on the generated variants.
 
 What we’ll build: 
-1. Copy generator
+1. Marketing Copy generator
 2. Style selector 
 3. Quick A/B test 
 
